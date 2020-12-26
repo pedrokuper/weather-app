@@ -1,10 +1,22 @@
-function Search({ type, name, id, label }) {
-  <div>
-    <label>
-      {label}
-      <input type={type} name={name} id={id} />
-    </label>
-  </div>;
+function Search({ type, name, id, label, placeholder }) {
+  function handleChange(e) {
+    const value = e.target.value;
+  }
+
+  return (
+    <>
+      <label>
+        {label}
+        <input
+          onChange={handleChange}
+          type={type}
+          name={name}
+          id={id}
+          placeholder={placeholder}
+        />
+      </label>
+    </>
+  );
 }
 
 export default Search;
