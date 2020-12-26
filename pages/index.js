@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import axios from "axios";
+import Search from "../components/Search";
+import Button from "../components/Button";
 
 export default function Home() {
   const apiKey = process.env.apiKey;
@@ -15,12 +14,16 @@ export default function Home() {
   async function getData() {
     const data = await fetch(URL);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
   }
 
   return (
     <main>
       <h1>App de clima</h1>
+      <div>
+        <Search type="text" placeholder="Buscar..." />
+        <Button name="Buscar" />
+      </div>
     </main>
   );
 }
