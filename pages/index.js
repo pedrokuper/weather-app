@@ -24,11 +24,12 @@ export default function Home() {
           temp: json.main.temp,
           desc: json.weather[0].description,
           icon: json.weather[0].icon,
+          humidity: json.main.humidity,
+          wind: json.wind.speed,
         };
         setWeather(weatherData);
       }
     } catch (error) {
-      console.log("error");
       setWeather({}); //Setea el estado en un objeto vacio para poder hacer saltar el mensaje de error.
     }
   }
@@ -36,8 +37,6 @@ export default function Home() {
   function handleCity(value) {
     setCity(value);
   }
-
-  console.log(weather);
 
   return (
     <main>
@@ -55,6 +54,8 @@ export default function Home() {
             <h2>{weather.name}</h2>
             <p>{weather.temp.toFixed(1)}°C</p>
             <p>{weather.desc}</p>
+            <p>Humedad: {weather.humidity}%</p>
+            <p>Viento: {weather.wind}km/h</p>
             <img
               src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
               alt="Weather icon"
