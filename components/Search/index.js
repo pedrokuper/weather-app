@@ -1,6 +1,7 @@
-function Search({ type, name, id, label, placeholder }) {
+function Search({ type, name, id, label, placeholder, handleCity }) {
   function handleChange(e) {
     const value = e.target.value;
+    handleCity(value);
   }
 
   return (
